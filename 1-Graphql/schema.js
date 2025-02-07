@@ -11,6 +11,7 @@ rating:Int!
 context:String!
 }
 
+//query structure 
 type Query{
 users:[User]
 reviews:[Review]
