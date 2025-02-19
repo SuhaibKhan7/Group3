@@ -8,8 +8,7 @@ const resolvers = {
     users() {
       return db.Users;
     },
-    products()
-    {
+    products() {
       return db.Products;
     },
     physicalproducts() {
@@ -17,6 +16,16 @@ const resolvers = {
     },
     digitalproducts() {
       return db.Products.filter((p) => p.__typename === "DigitalProduct");
+    },
+  },
+  PhysicalProduct: {
+    seller(parent) {
+      return db.Users.find((u) => u.id === parent.sellerId);
+    },
+  },
+  DigitalProduct: {
+    seller(parent) {
+      return db.Users.find((u) => u.id === parent.sellerId);
     },
   },
 };
