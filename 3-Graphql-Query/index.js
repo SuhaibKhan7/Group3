@@ -6,10 +6,16 @@ import db from "./db.js";
 const resolvers = {
   Query: {
     users() {
-      return db.User;
+      return db.Users;
     },
-    reviews() {
-      return db.Review;
+    products() {
+      return db.Products;
+    },
+  },
+  Product: {
+    seller(parent) {
+      console.log(parent);
+      return db.Users.find((u) => u.id == parent.sellerId);
     },
   },
 };

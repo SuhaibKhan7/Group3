@@ -1,4 +1,4 @@
-export const typeDefs=` #graphql
+export const typeDefs = `#graphql
 type User{
 id:ID!
 name:String!
@@ -10,12 +10,17 @@ id:ID!
 rating:Int!
 context:String!
 }
-
-//query structure 
+type Post{
+    id:ID!
+    title:String!
+}
 type Query{
 users:[User]
 reviews:[Review]
+posts:[Post]
+post(id:ID):Post
+user(id:ID):User
 }
 
 
-`
+`;
