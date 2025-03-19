@@ -1,6 +1,13 @@
-const { Sequelize } = require('sequelize');
-
-const sequelize = new Sequelize('database', 'username', 'password', {
-  host: 'localhost',
-  dialect:'mysql' /* one of 'mysql' | 'postgres' | 'sqlite' | 'mariadb' | 'mssql' | 'db2' | 'snowflake' | 'oracle' */
-});
+const { Sequelize } = require("sequelize");
+require("dotenv").config();
+const sequelize = new Sequelize(
+  process.env.DATABASE,
+  process.env.DBUSERNAME,
+  process.env.DBPASSWORD,
+  {
+    host: "localhost",
+    dialect:
+      "mysql" /* one of 'mysql' | 'postgres' | 'sqlite' | 'mariadb' | 'mssql' | 'db2' | 'snowflake' | 'oracle' */,
+  }
+);
+module.exports = sequelize;
