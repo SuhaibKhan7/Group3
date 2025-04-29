@@ -1,4 +1,4 @@
-const {DataTypes } = require("sequelize");
+const { DataTypes } = require("sequelize");
 const sequelize = require("../config/database");
 
 const User = sequelize.define(
@@ -13,14 +13,22 @@ const User = sequelize.define(
       type: DataTypes.STRING,
       // allowNull defaults to true
     },
+    fullname: {
+      type: DataTypes.VIRTUAL,
+      get() {
+        return (
+          this.getDataValue("firstName") + " " + this.getDataValue("lastName")
+        );
+      },
+    },
   },
   {
     // Other model options go here
-    updatedAt:true,
-    createdAt:true
+    updatedAt: true,
+    createdAt: true,
   }
 );
 
 // `sequelize.define` also returns the model
 console.log(User === sequelize.models.User); // true
-module.exports=User
+module.exports = User;
