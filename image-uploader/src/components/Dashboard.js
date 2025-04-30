@@ -14,6 +14,8 @@ function Dashboard() {
       .catch((error) => {
         // An error happened.
       });
+
+      
   }
 
   return (
