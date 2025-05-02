@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Routes, Route } from "react-router";
 import Login from "./components/Login";
+import Signup from "./components/Signup";
+
 import Dashboard from "./components/Dashboard";
 import { auth } from "./firebase";
 import { onAuthStateChanged } from "firebase/auth";
@@ -19,9 +21,10 @@ function App() {
 
   return (
     <Routes>
-      <Route path="/" element={!user?<Login />:<Dashboard/>} />
+      <Route path="/" element={!user ? <Login /> : <Dashboard />} />
       <Route path="/login" element={<Login />} />
-      <Route path="/dashboard" element={!user?<Login/>:<Dashboard />} />
+      <Route path="/signup" element={<Signup/>} />
+      <Route path="/dashboard" element={!user ? <Login /> : <Dashboard />} />
     </Routes>
   );
 }

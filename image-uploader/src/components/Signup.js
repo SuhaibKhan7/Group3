@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import {
   createUserWithEmailAndPassword,
+  GoogleAuthProvider,
 } from "firebase/auth";
 import { auth } from "../firebase";
 import { useNavigate } from "react-router";
